@@ -2,14 +2,14 @@ import './leafLady.css';
 import Header from "./Header";
 import NavBar from "./NavBar";
 import Music from "./Music";
-/*import Videos from "./Videos";*/
+import Videos from "./Videos";
 
 function App() {
   return (
     <div className="App">
         <Header />
         <NavBar />
-        {/*<Videos />*/}
+        <Videos />
         <Music />
     </div>
   );
