@@ -97,3 +97,13 @@ html, body > #root > div {
     opacity: 1;
 }
 
+.swiperContainer {
+    width: 90%;
+    /*border: thin black solid;*/
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-content: center;
+    background: var(--third);
+
+}
