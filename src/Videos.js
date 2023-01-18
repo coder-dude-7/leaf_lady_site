@@ -4,7 +4,7 @@ import React from "react";
 import {Swiper , SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { Scrollbar, Navigation, Autoplay} from "swiper";
+import swiper, { Scrollbar, Navigation, Autoplay} from "swiper";
 
 import test_video_data from './test_video_data.json'
 
@@ -16,9 +16,16 @@ class Videos extends React.Component {
             isLoaded: false,
             items: []
         };
+        this.pauseVideo = this.pauseVideo.bind(this)
     }
-    pauseVideo() {
-        console.log("pauseVideo")
+
+    /*playVideo() {
+        console.log("play")
+        ('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+    }*/
+    pauseVideo(videoIndex) {
+        console.log(videoIndex)
+
     }
     componentDidMount() {
         // C:\Users\natha\Desktop\websites\leafLadySite\leaf_lady_site\test_video_data.json
@@ -51,12 +58,15 @@ class Videos extends React.Component {
             item.id.kind === "youtube#video" ?
                 (
                     <SwiperSlide>
-                        <iframe width="760" height="415"
-                                src={"https://www.youtube.com/embed/" + item.id.videoId + "?controls=0"}
-                                title="YouTube video player" frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                key={item.position}
+                        <iframe
+                            className={"youtubeVideo_player"}
+                            width="760"
+                            height="415"
+                            src={"https://www.youtube.com/embed/" + item.id.videoId + "?controls=0"}
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            key={item.position}
                         >
                         </iframe>
                     </SwiperSlide>
@@ -75,11 +85,7 @@ class Videos extends React.Component {
                         <Swiper
                             key={swiperItems.length}
                             modules={[Scrollbar, Navigation]}
-                            slidesPerView={"auto"}
-                            navigation
-                            centeredSlides={true}
-                            centerInsufficientSlides={true}
-                            onSlideChange={() => this.pauseVideo()}
+                            onSlideChange={() => this.pauseVideo(this.activeIndex)}
                         >
                             {swiperItems}
                         </Swiper>
