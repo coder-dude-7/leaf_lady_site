@@ -4,7 +4,8 @@ import React from "react";
 import {Swiper , SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import swiper, { Scrollbar, Navigation, Autoplay} from "swiper";
+import { Scrollbar, Navigation} from "swiper";
+
 
 import test_video_data from './test_video_data.json'
 
@@ -57,8 +58,9 @@ class Videos extends React.Component {
         const swiperItems = items.map(item =>
             item.id.kind === "youtube#video" ?
                 (
-                    <SwiperSlide>
+                    <SwiperSlide id={"youtube_slide"}>
                         <iframe
+                            id={"youtubeVideo"}
                             className={"youtubeVideo_player"}
                             width="760"
                             height="415"
@@ -85,10 +87,17 @@ class Videos extends React.Component {
                         <Swiper
                             key={swiperItems.length}
                             modules={[Scrollbar, Navigation]}
+                            navigation
+                            slidesPerView={"auto"}
                             onSlideChange={() => this.pauseVideo(this.activeIndex)}
+                            centeredSlides={true}
                         >
                             {swiperItems}
                         </Swiper>
+                    </div>
+                    <div className={"video_navigation"}>
+                        <div className={"video_navigation_button"} id={"prev_video"}></div>
+                        <div className={"video_navigation_button"} id={"next_video"}></div>
                     </div>
                 </div>
             );
