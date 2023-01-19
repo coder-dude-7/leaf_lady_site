@@ -5,13 +5,14 @@ import {Swiper , SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { Scrollbar, Navigation} from "swiper";
-
-
 import test_video_data from './test_video_data.json'
 
 class Videos extends React.Component {
     constructor(props) {
         super(props);
+        this.prevVideoRef = React.createRef();
+        this.nextVideoRef = React.createRef();
+        this.swiperRef = React.createRef();
         this.state = {
             error: null,
             isLoaded: false,
@@ -54,7 +55,8 @@ class Videos extends React.Component {
 
     render() {
         const {error, isLoaded, items} = this.state;
-
+        /*const prevVideoRef = useRef(null);
+        const nextVideoRef = useRef(null);*/
         const swiperItems = items.map(item =>
             item.id.kind === "youtube#video" ?
                 (
@@ -85,19 +87,31 @@ class Videos extends React.Component {
                     <h1>VIDEOS!</h1>
                     <div className={"swiperContainer"}>
                         <Swiper
+                            ref={this.swiperRef}
                             key={swiperItems.length}
                             modules={[Scrollbar, Navigation]}
-                            navigation
                             slidesPerView={"auto"}
                             onSlideChange={() => this.pauseVideo(this.activeIndex)}
                             centeredSlides={true}
+                            loop
+                            navigation={{
+                                prevEl: this.prevVideoRef.current ? this.prevVideoRef.current : undefined,
+                                nextEl: this.nextVideoRef.current ? this.nextVideoRef.current : undefined,
+                            }}
+
+                            onInit={(swiper) => {
+                                swiper.params.navigation.prevEl = this.prevVideoRef.current;
+                                swiper.params.navigation.nextEl = this.nextVideoRef.current;
+                                swiper.navigation.init();
+                                swiper.navigation.update();
+                            }}
                         >
                             {swiperItems}
                         </Swiper>
                     </div>
                     <div className={"video_navigation"}>
-                        <div className={"video_navigation_button"} id={"prev_video"}></div>
-                        <div className={"video_navigation_button"} id={"next_video"}></div>
+                        <div className={"video_navigation_button"} id={"prev_video"} onClick={() => this.swiperRef.current.swiper.slidePrev()}></div>
+                        <div className={"video_navigation_button"} id={"next_video"} onClick={() => this.swiperRef.current.swiper.slideNext()}></div>
                     </div>
                 </div>
             );

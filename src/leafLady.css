@@ -73,16 +73,16 @@ html, body > #root > div {
     max-width: 250px;
     height: auto;
     z-index: 1;
-    transition: ease-in 0.25s;
+    transition: ease-in 0.75s;
 }
 #weeLady path {
     fill: var(--secondary);
     stroke-width: 1;
-    transition: ease-in 0.25s;
+    transition: ease-in 0.75s;
 }
 #weeLady svg:hover path{
     fill: var(--third);
-    transition: ease-in 0.25s;
+    transition: ease-in 0.75s;
 }
 
 .navbar_holder {
@@ -99,12 +99,16 @@ html, body > #root > div {
 
 .swiperContainer {
     width: 90%;
-    background: var(--third);
+    /*background: var(--third);*/
     max-width: 900px;
 }
 #youtube_slide {
     display: flex;
     justify-content: center;
+}
+#youtubeVideo {
+    border-radius: 20px;
+    border: thin var(--secondary) solid;
 }
 
 .video_navigation {
