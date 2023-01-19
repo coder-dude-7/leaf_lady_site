@@ -26,32 +26,37 @@ html, body > #root > div {
 
 .page {
     min-height: 100vh;
-    max-width: 100vw;
+    max-width: 2543px;
     display: flex;
     flex-flow: column;
     align-items: center;
+    align-content: center;
     position: relative;
     height: auto;
+    justify-content: center;
 }
 
 #header {
     /*padding-top: 2%;*/
+    min-height: 100vh;
 }
 
-#navbar {
-
+.nav_button {
+    text-decoration: none;
 }
 
 #mainLogo, svg{
     position: absolute;
-    top: 0;
+    /*top: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 90%;
     max-height: 90%;
     height: auto;
     padding-top: 2%;
-
 }
 #mainLogo, path {
     fill: var(--secondary);
@@ -99,7 +104,6 @@ html, body > #root > div {
 
 .swiperContainer {
     width: 90%;
-    /*background: var(--third);*/
     max-width: 900px;
 }
 #youtube_slide {
@@ -109,6 +113,7 @@ html, body > #root > div {
 #youtubeVideo {
     border-radius: 20px;
     border: thin var(--secondary) solid;
+    background: black;
 }
 
 .video_navigation {
@@ -120,6 +125,7 @@ html, body > #root > div {
 }
 
 .video_navigation_button {
+    /*background: #eee9f1;*/
     display: block;
     margin: 30px auto;
     width: 25px;
@@ -128,8 +134,9 @@ html, body > #root > div {
     border-left: 2px solid var(--secondary);
 }
 .video_navigation_button:hover {
-    border-top: 4px solid var(--secondary);
-    border-left: 4px solid var(--secondary);
+    /*border-top: 4px solid var(--secondary);
+    border-left: 4px solid var(--secondary);*/
+    cursor: pointer;
 }
 
 #next_video {
@@ -140,4 +147,10 @@ html, body > #root > div {
 #prev_video {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.spotify_player {
+    max-width: 900px;
+    width: 90%;
+    height: 500px;
 }

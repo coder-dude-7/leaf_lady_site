@@ -4,8 +4,9 @@ import React from "react";
 import {Swiper , SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { Scrollbar, Navigation} from "swiper";
+import {Scrollbar, Navigation} from "swiper";
 import test_video_data from './test_video_data.json'
+import Zoom from "react-reveal/Fade";
 
 class Videos extends React.Component {
     constructor(props) {
@@ -79,26 +80,28 @@ class Videos extends React.Component {
             return <div>loading...</div>;
         } else {
             return (
-                <div className={"page"} id={"videos"}>
-                    <h1>VIDEOS!</h1>
-                    <div className={"swiperContainer"}>
-                        <Swiper
-                            ref={this.swiperRef}
-                            key={swiperItems.length}
-                            modules={[Scrollbar, Navigation]}
-                            slidesPerView={"auto"}
-                            onSlideChange={() => this.pauseVideo(this.activeIndex)}
-                            centeredSlides={true}
-                            loop
-                        >
-                            {swiperItems}
-                        </Swiper>
+                <Zoom bottom delay={250}>
+                    <div className={"page"} id={"videos"}>
+                        <h1>VIDEOS!</h1>
+                        <div className={"swiperContainer"}>
+                            <Swiper
+                                ref={this.swiperRef}
+                                key={swiperItems.length}
+                                modules={[Scrollbar, Navigation]}
+                                slidesPerView={"auto"}
+                                onSlideChange={() => this.pauseVideo(this.activeIndex)}
+                                centeredSlides={true}
+                                loop
+                            >
+                                {swiperItems}
+                            </Swiper>
+                        </div>
+                        <div className={"video_navigation"}>
+                            <div className={"video_navigation_button"} id={"prev_video"} onClick={() => this.swiperRef.current.swiper.slidePrev()}></div>
+                            <div className={"video_navigation_button"} id={"next_video"} onClick={() => this.swiperRef.current.swiper.slideNext()}></div>
+                        </div>
                     </div>
-                    <div className={"video_navigation"}>
-                        <div className={"video_navigation_button"} id={"prev_video"} onClick={() => this.swiperRef.current.swiper.slidePrev()}></div>
-                        <div className={"video_navigation_button"} id={"next_video"} onClick={() => this.swiperRef.current.swiper.slideNext()}></div>
-                    </div>
-                </div>
+                </Zoom>
             );
         }
     }

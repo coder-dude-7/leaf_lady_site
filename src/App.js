@@ -9,8 +9,8 @@ function App() {
     <div className="App">
         <Header />
         <NavBar />
-        <Videos />
         <Music />
+        <Videos />
     </div>
   );
 }
