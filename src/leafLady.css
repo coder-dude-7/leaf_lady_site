@@ -145,19 +145,35 @@ html, body > #root > div {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
+    align-items: center;
     width: 80%;
-    background: #282c34;
+    height: 10%;
 }
 .select_box {
     width: 50%;
     font-family: Roboto, serif;
 }
-#buyButton {
-    width: 20%;
-    height: 100%;
-    background: var(--secondary);
+#purchase_button_holder {
+    width: 40%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    /*background: var(--secondary);*/
+    gap: 10px;
 }
-
+.purchaseButton {
+    background: var(--secondary-text);
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+}
+#buy {
+    background: var(--third-text);
+}
 .swiperContainer {
     width: 90%;
     max-width: 900px;
@@ -191,6 +207,47 @@ html, body > #root > div {
     border-radius: 10px;
 }
 
+.photo_descriptor {
+    display: flex;
+    flex-flow: row;
+    width: 50%;
+}
+.photo_descriptor:hover {
+    cursor: pointer;
+}
+#cameraHolder > svg {
+    position: relative;
+}
+#cameraLogo {
+    fill: var(--main-text);
+    stroke: var(--main-text);
+}
+.turner_logo_holder {
+    background: var(--third-text);
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.turner_logo_holder > svg {
+    width: 100%;
+    position: relative;
+}
+#turnerLogo {
+    fill: var(--mainBackground);
+    stroke: var(--mainBackground);
+    stroke-width: 0.5;
+}
+.photo_descriptor:hover #turnerLogo {
+    fill: var(--secondary);
+    stroke: var(--secondary);
+}
+.photo_descriptor:hover #cameraLogo{
+    fill: var(--third);
+    stroke: var(--third);
+}
+
 .video_navigation {
     display: flex;
     flex-direction: row;
@@ -200,7 +257,6 @@ html, body > #root > div {
 }
 
 .video_navigation_button {
-    /*background: #eee9f1;*/
     display: block;
     margin: 30px auto;
     width: 25px;
@@ -209,8 +265,6 @@ html, body > #root > div {
     border-left: 2px solid var(--secondary);
 }
 .video_navigation_button:hover {
-    /*border-top: 4px solid var(--secondary);
-    border-left: 4px solid var(--secondary);*/
     cursor: pointer;
 }
 
@@ -229,3 +283,4 @@ html, body > #root > div {
     width: 90%;
     height: 500px;
 }
+

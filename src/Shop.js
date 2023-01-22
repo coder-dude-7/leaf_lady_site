@@ -10,17 +10,10 @@ class Product extends React.Component {
         this.image_path = props.image_path;
         this.description = props.description;
         this.price = Number(props.price/100);
-        /*this.options = [{value: "jobby", label:"bum"}];*/
         this.options = props.options;
-        /*props.options.map((option) =>
-            /!*this.options.add(
-                {
-                    value: option,
-                    label: option
-                }
-            )*!/
-            console.log(option)
-        );*/
+        this.state = {
+            selectedOption: this.options[0]
+        }
     }
     render() {
         return (
@@ -38,14 +31,15 @@ class Product extends React.Component {
                 <div id={"productOptions"}>
                     <Select
                         className={"select_box"}
-                        defaultValue={this.options[0]}
+                        defaultValue={this.state.selectedOption}
                         options={this.options}
                         name={"options"}
                         isSearchable={false}
                         isClearable={false}
                     />
-                    <div id={"buyButton"}>
-                        <h3 style={{maxHeight: "100%"}}> buy now</h3>
+                    <div id={"purchase_button_holder"}>
+                        <div className={"purchaseButton"} id={"addToBasket"}>Add to Basket</div>
+                        <div className={"purchaseButton"} id={"buy"}>Buy Now!</div>
                     </div>
                 </div>
             </div>
