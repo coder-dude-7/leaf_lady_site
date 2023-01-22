@@ -1,0 +1,72 @@
+{
+  "products": [
+    {
+      "name": "Psychedelic Handcrafted Coaster",
+      "image_path": "./images/coaster.webp",
+      "description": "All coasters were designed and produced locally by M's Creative Crafts.",
+      "price": 800,
+      "options": [
+        {
+          "value": "gold",
+          "label": "Gold"
+        },
+        {
+          "value": "pink",
+          "label": "Pink"
+        }
+      ]
+    },
+    {
+      "name": "White T-Shirt With Logo",
+      "image_path": "./images/white_tshirt.webp",
+      "description": "White t-shirts featuring the Leaf Lady & The Wish Collective logo. All t-shirts were designed and produced locally by M's Creative Crafts with help from the band.",
+      "price": 1000,
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "X-Large"
+        }
+      ]
+    },
+    {
+      "name": "White T-Shirt With Logo",
+      "image_path": "./images/tiedye_tshirt.webp",
+      "description": "Tie Dyed t-shirts featuring the Leaf Lady & The Wish Collective logo. All t-shirts were designed and produced locally by M's Creative Crafts with help from the band.",
+      "price": 1500,
+      "options": [
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "X-Large"
+        }
+      ]
+    },
+    {
+      "name": "A Different Pasture CD",
+      "image_path": "./images/cd.webp",
+      "description": "1 copy of our debut EP 'A Different Pasture' on CD.",
+      "price": 500,
+      "options": [
+        {
+          "value": "jobby",
+          "label": "Jobby"
+        }
+      ]
+    }
+  ]
+}

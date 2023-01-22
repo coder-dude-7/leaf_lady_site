@@ -30,10 +30,10 @@ html, body > #root > div {
     display: flex;
     flex-flow: column;
     align-items: center;
-    align-content: center;
     position: relative;
     height: auto;
-    justify-content: center;
+    /*justify-content: center;*/
+    /*border: thin black solid;*/
 }
 
 #header {
@@ -41,6 +41,12 @@ html, body > #root > div {
     min-height: 100vh;
 }
 
+#music {
+    margin-top: 200px;
+}
+#photos{
+    height: 100vh;
+}
 .nav_button {
     text-decoration: none;
 }
@@ -102,6 +108,56 @@ html, body > #root > div {
     opacity: 1;
 }
 
+#shop {
+    justify-content: flex-start;
+    width: 100%;
+
+    align-items: center;
+}
+
+.product_container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1000px;
+}
+.product {
+    /*background: #E0457B;*/
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    min-height: 50%;
+}
+#productTitle {
+    text-align: center;
+}
+#productImage {
+    width: 80%;
+}
+#productDescription {
+    width: 80%;
+    color: var(--third-text);
+}
+#productOptions {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    width: 80%;
+    background: #282c34;
+}
+.select_box {
+    width: 50%;
+    font-family: Roboto, serif;
+}
+#buyButton {
+    width: 20%;
+    height: 100%;
+    background: var(--secondary);
+}
+
 .swiperContainer {
     width: 90%;
     max-width: 900px;
@@ -114,6 +170,25 @@ html, body > #root > div {
     border-radius: 20px;
     border: thin var(--secondary) solid;
     background: black;
+}
+
+#photoSwiper {
+    width: 80%;
+    height: 60%;
+}
+
+#photo_slide {
+    min-width: 60%;
+}
+
+#photo {
+    max-width: 100%;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
 
 .video_navigation {

@@ -80,7 +80,7 @@ class Videos extends React.Component {
             return <div>loading...</div>;
         } else {
             return (
-                <Zoom bottom delay={250}>
+                <Zoom bottom delay={100}>
                     <div className={"page"} id={"videos"}>
                         <h1>VIDEOS!</h1>
                         <div className={"swiperContainer"}>

@@ -2,7 +2,7 @@ import Zoom from "react-reveal/Fade";
 
 export default function Music() {
     return (
-        <Zoom bottom delay={300}>
+        <Zoom bottom delay={100}>
             <div className={"page"} id={"music"}>
                 <h1>MUSIC</h1>
                 <iframe

@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@paypal/react-paypal-js": "^7.8.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "eslint-config-react-app": "^7.0.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-reveal": "^1.2.2",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
     "swiper": "^8.4.6",
     "web-vitals": "^2.1.4"
   },
