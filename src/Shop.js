@@ -21,7 +21,7 @@ class Product extends React.Component {
                 <div id={"productTitle"}>
                     <h1>{this.name}</h1>
                 </div>
-                <img src={require("" + this.image_path)} id={"productImage"}/>
+                <img src={require("" + this.image_path)} id={"productImage"} alt={this.image_path}/>
                 <div id={"productDescription"}>
                     {this.description}
                 </div>

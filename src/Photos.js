@@ -1,19 +1,18 @@
-import Zoom from "react-reveal/Fade";
 import {Swiper , SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import {Scrollbar, Navigation} from "swiper";
 import React from "react";
-import turnerLogo from "./images/turnerPhotographs.svg"
-import cameraImage from './images/camera.svg'
+
 export default function Photos() {
     const swiperItems = [];
     for (let i = 1; i < 7; i++){
         swiperItems.push(
             <SwiperSlide id={"photo_slide"}>
                 <img
-                    src={require("" + "./images/13th_note_gig/" + i.toString() + ".webp")}
+                    src={require("./images/13th_note_gig/" + i.toString() + ".webp")}
                     id={"photo"}
+                    alt={"image: " + i.toString()}
                 />
             </SwiperSlide>
         )
@@ -44,7 +43,7 @@ export default function Photos() {
                          width="3.63889in" height="3.63889in"
                          viewBox="0 0 262 262">
                         <path id="cameraLogo"
-                              fill="none" stroke="black" stroke-width="1"
+                              fill="none" stroke="black"
                               d="M 123.00,45.00
                C 123.00,45.00 124.48,32.04 124.48,32.04
                  124.48,32.04 131.37,23.90 131.37,23.90
@@ -428,7 +427,7 @@ export default function Photos() {
                          viewBox="0 0 892 246"
                     >
                         <path id={"turnerLogo"}
-                              fill="black" stroke="black" stroke-width="0.5"
+                              fill="black" stroke="black"
                               d="M 106.00,3.21
                C 106.00,3.21 124.00,3.21 124.00,3.21
                  137.08,3.02 149.83,6.40 162.00,10.95
