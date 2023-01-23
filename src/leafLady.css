@@ -210,7 +210,8 @@ html, body > #root > div {
 .photo_descriptor {
     display: flex;
     flex-flow: row;
-    width: 50%;
+    width: 80%;
+    max-width: 400px;
 }
 .photo_descriptor:hover {
     cursor: pointer;
