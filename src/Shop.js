@@ -12,7 +12,8 @@ class Product extends React.Component {
         this.price = Number(props.price/100);
         this.options = props.options;
         this.state = {
-            selectedOption: this.options[0]
+            selectedOption: this.options[0],
+            quantity: 0
         }
     }
     render() {
@@ -36,6 +37,14 @@ class Product extends React.Component {
                         name={"options"}
                         isSearchable={false}
                         isClearable={false}
+                    />
+                    <Select
+                        className={"select_box"}
+                        defaultValue={"1"}
+                        options={this.options}
+                        name={"quantity"}
+                        isSearchable={false}
+                        isClearable={true}
                     />
                     <div id={"purchase_button_holder"}>
                         <div className={"purchaseButton"} id={"addToBasket"}>Add to Basket</div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+
 :root {
     --mainBackground: #eee9f1;
     --secondary: #E0457B;
@@ -7,6 +9,10 @@
     --third-text: #9EB356;
 
     --main-font: fantasy;
+}
+
+.App {
+    position: relative;
 }
 
 html, body > #root > div {
@@ -46,6 +52,13 @@ html, body > #root > div {
 }
 #photos{
     height: 100vh;
+}
+
+.NavBar {
+    transition: opacity ease-in 0.2s;
+}
+.navbar_holder {
+    background: var(--mainBackground);
 }
 .nav_button {
     text-decoration: none;
@@ -285,3 +298,12 @@ html, body > #root > div {
     height: 500px;
 }
 
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: var(--mainBackground);
+    color: black;
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+}

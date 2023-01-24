@@ -17,12 +17,12 @@ export default function Photos() {
             </SwiperSlide>
         )
     }
-    const swiperRef = React.createRef();
+    const photoSwiperRef = React.createRef();
     return (
         <div className={"page"} id={"photos"}>
             <h1>PHOTOS</h1>
             <Swiper
-                ref={swiperRef}
+                ref={photoSwiperRef}
                 id={"photoSwiper"}
                 key={swiperItems.length}
                 modules={[Scrollbar, Navigation]}
@@ -33,8 +33,8 @@ export default function Photos() {
                 {swiperItems}
             </Swiper>
             <div className={"video_navigation"}>
-                <div className={"video_navigation_button"} id={"prev_video"} onClick={() => swiperRef.current.swiper.slidePrev()}></div>
-                <div className={"video_navigation_button"} id={"next_video"} onClick={() => swiperRef.current.swiper.slideNext()}></div>
+                <div className={"video_navigation_button"} id={"prev_video"} onClick={() => photoSwiperRef.current.swiper.slidePrev()}></div>
+                <div className={"video_navigation_button"} id={"next_video"} onClick={() => photoSwiperRef.current.swiper.slideNext()}></div>
             </div>
 
             <div className={"photo_descriptor"} onClick={() => window.open("https://www.instagram.com/turner_photographs/", "_blank")}>
