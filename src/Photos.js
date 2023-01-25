@@ -4,47 +4,48 @@ import "swiper/css/scrollbar";
 import {Scrollbar, Navigation} from "swiper";
 import React from "react";
 
-export default function Photos() {
-    const swiperItems = [];
-    for (let i = 1; i < 7; i++){
-        swiperItems.push(
-            <SwiperSlide id={"photo_slide"}>
-                <img
-                    src={require("./images/13th_note_gig/" + i.toString() + ".webp")}
-                    id={"photo"}
-                    alt={"image: " + i.toString()}
-                />
-            </SwiperSlide>
-        )
-    }
-    const photoSwiperRef = React.createRef();
-    return (
-        <div className={"page"} id={"photos"}>
-            <h1>PHOTOS</h1>
-            <Swiper
-                ref={photoSwiperRef}
-                id={"photoSwiper"}
-                key={swiperItems.length}
-                modules={[Scrollbar, Navigation]}
-                slidesPerView={"auto"}
-                centeredSlides={true}
-                loop
-            >
-                {swiperItems}
-            </Swiper>
-            <div className={"video_navigation"}>
-                <div className={"video_navigation_button"} id={"prev_video"} onClick={() => photoSwiperRef.current.swiper.slidePrev()}></div>
-                <div className={"video_navigation_button"} id={"next_video"} onClick={() => photoSwiperRef.current.swiper.slideNext()}></div>
-            </div>
 
-            <div className={"photo_descriptor"} onClick={() => window.open("https://www.instagram.com/turner_photographs/", "_blank")}>
-                <div id={"cameraHolder"}>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         width="3.63889in" height="3.63889in"
-                         viewBox="0 0 262 262">
-                        <path id="cameraLogo"
-                              fill="none" stroke="black"
-                              d="M 123.00,45.00
+class Photos extends React.Component {
+    photoSwiperRef = React.createRef();
+    render() {
+        const swiperItems = [];
+        for (let i = 1; i < 7; i++){
+            swiperItems.push(
+                <SwiperSlide id={"photo_slide"}>
+                    <img
+                        src={require("./images/13th_note_gig/" + i.toString() + ".webp")}
+                        id={"photo"}
+                        alt={"image: " + i.toString()}
+                    />
+                </SwiperSlide>
+            )
+        }
+        return (
+            <div className={"page"} id={"photos"}>
+                <h1>PHOTOS</h1>
+                <Swiper
+                    ref={this.photoSwiperRef}
+                    id={"photoSwiper"}
+                    key={swiperItems.length}
+                    modules={[Scrollbar, Navigation]}
+                    slidesPerView={"auto"}
+                    centeredSlides={true}
+                    loop
+                >
+                    {swiperItems}
+                </Swiper>
+                <div className={"video_navigation"}>
+                    <div className={"video_navigation_button"} id={"prev_video"} onClick={() => this.photoSwiperRef.current.swiper.slidePrev()}></div>
+                    <div className={"video_navigation_button"} id={"next_video"} onClick={() => this.photoSwiperRef.current.swiper.slideNext()}></div>
+                </div>
+
+                <div className={"photo_descriptor"} onClick={() => window.open("https://www.instagram.com/turner_photographs/", "_blank")}>
+                    <div id={"cameraHolder"}>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 262 262" id={"cameraHolder_svg"}>
+                            <path id="cameraLogo_path"
+                                  fill="none" stroke="black"
+                                  d="M 123.00,45.00
                C 123.00,45.00 124.48,32.04 124.48,32.04
                  124.48,32.04 131.37,23.90 131.37,23.90
                  131.37,23.90 138.10,14.04 138.10,14.04
@@ -416,19 +417,17 @@ export default function Photos() {
                M 182.00,177.00
                C 176.60,180.75 170.86,184.95 168.00,191.00
                  173.11,188.58 180.01,182.37 182.00,177.00 Z" />
-                    </svg>
-                </div>
+                        </svg>
+                    </div>
 
 
-                <div className={"turner_logo_holder"}>
-                    {/*All photos by Byron Turner*/}
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         width="2.97333in" height="0.82in"
-                         viewBox="0 0 892 246"
-                    >
-                        <path id={"turnerLogo"}
-                              fill="black" stroke="black"
-                              d="M 106.00,3.21
+                    <div className={"turner_logo_holder"}>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 892 246"
+                        >
+                            <path id={"turnerLogo"}
+                                  fill="black" stroke="black"
+                                  d="M 106.00,3.21
                C 106.00,3.21 124.00,3.21 124.00,3.21
                  137.08,3.02 149.83,6.40 162.00,10.95
                  175.22,15.90 184.14,21.67 195.00,30.61
@@ -1437,9 +1436,12 @@ export default function Photos() {
                M 416.00,231.00
                C 410.03,233.93 406.22,236.48 404.00,243.00
                  410.03,240.95 413.95,237.03 416.00,231.00 Z" />
-                    </svg>
+                        </svg>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
+
+export default Photos;

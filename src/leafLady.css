@@ -64,7 +64,7 @@ html, body > #root > div {
     text-decoration: none;
 }
 
-#mainLogo, svg{
+#mainLogo_svg {
     position: absolute;
     /*top: 0;
     left: 50%;
@@ -88,7 +88,7 @@ html, body > #root > div {
     transition: 0.75s ease-in;
 }
 
-#weeLady svg {
+#weeLady_svg {
     position: absolute;
     top: 0;
     left: 95%;
@@ -124,7 +124,6 @@ html, body > #root > div {
 #shop {
     justify-content: flex-start;
     width: 100%;
-
     align-items: center;
 }
 
@@ -154,39 +153,55 @@ html, body > #root > div {
     width: 80%;
     color: var(--third-text);
 }
+
+#productOptionsHolder {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    width: 80%;
+}
+
 #productOptions {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
-    height: 10%;
+    width: 100%;
 }
-.select_box {
-    width: 50%;
-    font-family: Roboto, serif;
-}
+/*.rw-widget-container {
+    max-width: 100%;
+}*/
 #purchase_button_holder {
-    width: 40%;
+    width: 100%;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     align-items: center;
     justify-content: center;
-    /*background: var(--secondary);*/
     gap: 10px;
 }
 .purchaseButton {
-    background: var(--secondary-text);
+    background: var(--third-text);
     min-height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 50%;
     border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    text-align: center;
+    transition: 0.25s;
 }
-#buy {
+/*#buy {
     background: var(--third-text);
+}*/
+.purchaseButton:hover {
+    background: #282c34;
 }
+/*#buy:hover{
+    background: #282c34;
+}*/
+
 .swiperContainer {
     width: 90%;
     max-width: 900px;
@@ -223,30 +238,36 @@ html, body > #root > div {
 .photo_descriptor {
     display: flex;
     flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
     width: 80%;
     max-width: 400px;
-}
-.photo_descriptor:hover {
     cursor: pointer;
+}
+#cameraHolder {
+    position: relative;
 }
 #cameraHolder > svg {
     position: relative;
+    max-width: 100px;
+    width: 100%;
 }
-#cameraLogo {
-    fill: var(--main-text);
-    stroke: var(--main-text);
+#cameraLogo_path {
+    /*fill: var(--main-text);
+    stroke: var(--main-text);*/
+    fill: black;
+    stroke: black;
 }
 .turner_logo_holder {
-    background: var(--third-text);
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    height: 100%;
+    /*background: var(--third-text);*/
+    background: black;
+    padding: 5px;
     border-radius: 10px;
 }
 .turner_logo_holder > svg {
     width: 100%;
     position: relative;
+    max-width: 250px;
 }
 #turnerLogo {
     fill: var(--mainBackground);
@@ -257,9 +278,9 @@ html, body > #root > div {
     fill: var(--secondary);
     stroke: var(--secondary);
 }
-.photo_descriptor:hover #cameraLogo{
-    fill: var(--third);
-    stroke: var(--third);
+.photo_descriptor:hover #cameraLogo_path {
+    fill: var(--mainBackground);
+    stroke: var(--secondary);
 }
 
 .video_navigation {

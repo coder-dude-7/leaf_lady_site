@@ -1,6 +1,7 @@
 import React from "react";
 import productJSON from "./products.json"
-import Select from 'react-select';
+import "react-widgets/styles.css";
+import {NumberPicker, DropdownList} from "react-widgets";
 
 
 class Product extends React.Component {
@@ -15,6 +16,23 @@ class Product extends React.Component {
             selectedOption: this.options[0],
             quantity: 0
         }
+        this.changeQuantity = this.changeQuantity.bind(this);
+        this.changeOption = this.changeOption.bind(this);
+    }
+
+    changeQuantity(new_value){
+        this.setState({
+            quantity: new_value
+        });
+    }
+    changeOption(new_option){
+        console.log(new_option)
+        this.setState({
+            selectedOption: new_option
+        });
+    }
+    addToBasket() {
+
     }
     render() {
         return (
@@ -29,26 +47,30 @@ class Product extends React.Component {
                 <div id={"productPrice"}>
                     <h2>{"£" + this.price.toFixed(2)}</h2>
                 </div>
-                <div id={"productOptions"}>
-                    <Select
-                        className={"select_box"}
-                        defaultValue={this.state.selectedOption}
-                        options={this.options}
-                        name={"options"}
-                        isSearchable={false}
-                        isClearable={false}
-                    />
-                    <Select
-                        className={"select_box"}
-                        defaultValue={"1"}
-                        options={this.options}
-                        name={"quantity"}
-                        isSearchable={false}
-                        isClearable={true}
-                    />
+                <div id={"productOptionsHolder"}>
+                    <div id={"productOptions"}>
+                        <DropdownList
+                            id={"select_box"}
+                            data={this.options}
+                            onChange={(value) => this.changeOption(value)}
+                            value={this.state.selectedOption}
+                        />
+                        <NumberPicker
+                            id={"quantity_select"}
+                            value={this.state.quantity}
+                            step={1}
+                            min={0}
+                            onChange={(value) => this.changeQuantity(value)}
+                        />
+                    </div>
                     <div id={"purchase_button_holder"}>
-                        <div className={"purchaseButton"} id={"addToBasket"}>Add to Basket</div>
-                        <div className={"purchaseButton"} id={"buy"}>Buy Now!</div>
+                        <div
+                            className={"purchaseButton"}
+                            id={"addToBasket"}
+                            onClick={() => this.addToBasket()}
+                        >
+                            Add to Basket
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,6 +79,16 @@ class Product extends React.Component {
 }
 
 class Shop extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            basket: {
+                "quantity": 0,
+                "item": "",
+                "variant": ""
+            }
+        }
+    }
     render() {
         return (
             <div className={"page"} id={"shop"}>

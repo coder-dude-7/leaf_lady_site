@@ -6,7 +6,7 @@ export default function Header() {
             <div id={"weeLady"}>
                 <svg xmlns="http://www.w3.org/2000/svg"
                      width="255.355mm" height="342.647mm"
-                     viewBox="0 0 3016 4047">
+                     viewBox="0 0 3016 4047" id={"weeLady_svg"}>
                     <path id="Selection"
                           fill="blue" stroke="black" stroke-width="1"
                           d="M 2347.00,181.00 C 2344.47,175.76 2341.11,174.00 2337.00,169.99 2337.00,169.99 2315.28,148.00 2315.28,148.00 2283.90,112.40 2253.18,73.99 2210.00,52.25 2191.57,42.97 2177.80,35.93 2158.00,29.33 2154.17,28.05 2142.63,25.04 2142.63,20.10
@@ -5252,7 +5252,7 @@ export default function Header() {
             <div id={"#mainLogo"}>
                 <svg xmlns="http://www.w3.org/2000/svg"
                      width="347.557mm" height="302.43mm"
-                     viewBox="0 0 4105 3572">
+                     viewBox="0 0 4105 3572" id={"mainLogo_svg"}>
                     <path id="Selection"
                           fill="black" stroke="black" stroke-width="1"
                           d="M 439.00,0.21 C 439.00,0.21 465.00,0.21 465.00,0.21
