@@ -53,6 +53,9 @@ html, body > #root > div {
 #photos{
     height: 100vh;
 }
+#videos {
+    width: 100%;
+}
 
 .NavBar {
     transition: opacity ease-in 0.2s;
@@ -146,12 +149,36 @@ html, body > #root > div {
 #productTitle {
     text-align: center;
 }
-#productImage {
+
+.product_image_holder {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: thin black solid;
+    position: relative;
     width: 80%;
 }
+#productImage {
+    width: 100%;
+    transition: opacity 0.5s;
+}
 #productDescription {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%;
-    color: var(--third-text);
+    opacity: 0;
+    transition: opacity 0.5s;
+    background: var(--mainBackground);
+}
+.product_image_holder:hover #productImage {
+    opacity: 0.5;
+}
+
+.product_image_holder:hover #productDescription{
+    color: #282c34;
+    opacity: 1;
 }
 
 #productOptionsHolder {
@@ -202,6 +229,20 @@ html, body > #root > div {
     background: #282c34;
 }*/
 
+.mCraftImageHolder {
+    width: 10%;
+    max-width: 250px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+#mCraftsImage {
+    width: 100%;
+    transition: filter 1s, transform 0.75s;
+}
+#mCraftsImage:hover {
+    filter: brightness(1.1);
+    transform: rotate(360deg);
+}
 .swiperContainer {
     width: 90%;
     max-width: 900px;
@@ -311,6 +352,16 @@ html, body > #root > div {
 #prev_video {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.jamVanSVG {
+    width: 80%;
+    max-width: 900px;
+}
+.jamVanSVG path {
+    fill: whitesmoke;
+    border: black thin solid;
+    stroke: #282c34;
 }
 
 .spotify_player {

@@ -7,6 +7,7 @@ import "swiper/css/scrollbar";
 import {Scrollbar, Navigation} from "swiper";
 import test_video_data from './test_video_data.json'
 import Zoom from "react-reveal/Fade";
+import JamVanSVG from "./images/JamNtheVan.svg"
 
 class Videos extends React.Component {
     constructor(props) {
@@ -99,6 +100,9 @@ class Videos extends React.Component {
                         <div className={"video_navigation"}>
                             <div className={"video_navigation_button"} id={"prev_video"} onClick={() => this.swiperRef.current.swiper.slidePrev()}></div>
                             <div className={"video_navigation_button"} id={"next_video"} onClick={() => this.swiperRef.current.swiper.slideNext()}></div>
+                        </div>
+                        <div className={"jamVanSVG"}>
+                            <img src={JamVanSVG}/>
                         </div>
                     </div>
                 </Zoom>

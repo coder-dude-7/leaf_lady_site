@@ -2,6 +2,7 @@ import React from "react";
 import productJSON from "./products.json"
 import "react-widgets/styles.css";
 import {NumberPicker, DropdownList} from "react-widgets";
+import mCrafts from "./images/mCrafts.png"
 
 
 class Product extends React.Component {
@@ -40,9 +41,9 @@ class Product extends React.Component {
                 <div id={"productTitle"}>
                     <h1>{this.name}</h1>
                 </div>
-                <img src={require("" + this.image_path)} id={"productImage"} alt={this.image_path}/>
-                <div id={"productDescription"}>
-                    {this.description}
+                <div className={"product_image_holder"}>
+                    <img src={require("" + this.image_path)} id={"productImage"} alt={this.image_path}/>
+                    <div id={"productDescription"}>{this.description}</div>
                 </div>
                 <div id={"productPrice"}>
                     <h2>{"£" + this.price.toFixed(2)}</h2>
@@ -103,6 +104,9 @@ class Shop extends React.Component {
                             options={product.options}
                         />
                     )}
+                </div>
+                <div className={"mCraftImageHolder"}>
+                    <img src={mCrafts} id={"mCraftsImage"} onClick={() => window.open("https://www.instagram.com/m_creative_crafts/", "_blank")}/>
                 </div>
             </div>
         )
