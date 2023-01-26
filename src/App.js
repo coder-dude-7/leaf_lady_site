@@ -57,7 +57,7 @@ class App extends React.Component {
                 </div>
                 <Shop />
                 <Music />
-                <Videos />
+                {/*<Videos />*/}
                 <Photos />
                 <Footer />
             </div>

@@ -21,20 +21,30 @@ class Product extends React.Component {
         this.changeOption = this.changeOption.bind(this);
     }
 
+    callBackMethod() {
+        let data = {
+            "quantity": this.state.quantity,
+            "item": this.name,
+            "variant": this.state.selectedOption,
+            "price": this.price,
+            "total": this.price*this.state.quantity
+        }
+        this.props.sendData(data)
+    }
+
     changeQuantity(new_value){
         this.setState({
             quantity: new_value
         });
     }
     changeOption(new_option){
-        console.log(new_option)
         this.setState({
             selectedOption: new_option
         });
     }
-    addToBasket() {
+    /*addToBasket() {
 
-    }
+    }*/
     render() {
         return (
             <div className={"product"}>
@@ -68,7 +78,7 @@ class Product extends React.Component {
                         <div
                             className={"purchaseButton"}
                             id={"addToBasket"}
-                            onClick={() => this.addToBasket()}
+                            onClick={() => this.callBackMethod()}
                         >
                             Add to Basket
                         </div>
@@ -83,12 +93,52 @@ class Shop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            basket: {
-                "quantity": 0,
-                "item": "",
-                "variant": ""
-            }
+            basket: []
         }
+    }
+    checkForDuplicates(entry, props, index) {
+
+        /*console.log(entry)*/
+
+        if (entry.item === props.item && entry.variant === props.variant){
+
+            let updatedEntry = {
+                "quantity": entry.quantity + props.quantity,
+                "item": entry.item,
+                "variant": entry.variant,
+                "price": entry.price,
+                "total": (entry.quantity + props.quantity)*entry.total
+            };
+            let basketCopy = [...this.state.basket];
+            basketCopy[index] = updatedEntry;
+            console.log("basketCopy:", basketCopy)
+            this.setState({
+                basket: basketCopy
+            });
+        }
+    }
+    addToBasket = (props) => {
+        /*let newBasket = {
+            "quantity": props.quantity,
+            "item": props.item,
+            "variant": props.variant,
+            "price": props.price,
+            "total": props.total
+        }*/
+        // NEED TO ADD ABILITY TO INCREASE QUANTITY OF
+        // PRODUCTS ALREADY IN BASKET IF SAME ONES ARE ADDED
+
+        /*this.state.basket.forEach(this.checkForDuplicates);*/
+
+        for(let i = 0; i < this.state.basket.length; i++){
+            this.checkForDuplicates(this.state.basket[i], props, i)
+        }
+        console.log(this.state.basket);
+
+        this.setState({
+            basket: [...this.state.basket, props]
+        });
+        console.log(this.state.basket)
     }
     render() {
         return (
@@ -102,6 +152,7 @@ class Shop extends React.Component {
                             description={product.description}
                             price={product.price}
                             options={product.options}
+                            sendData={this.addToBasket}
                         />
                     )}
                 </div>
