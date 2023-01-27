@@ -154,13 +154,14 @@ html, body > #root > div {
     display: flex;
     flex-flow: column;
     align-items: center;
-    border: thin black solid;
+    border-radius: 150px;
     position: relative;
     width: 80%;
 }
 #productImage {
     width: 100%;
     transition: opacity 0.5s;
+    border-radius: 10px;
 }
 #productDescription {
     position: absolute;

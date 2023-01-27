@@ -96,48 +96,37 @@ class Shop extends React.Component {
             basket: []
         }
     }
-    checkForDuplicates(entry, props, index) {
 
-        /*console.log(entry)*/
-
-        if (entry.item === props.item && entry.variant === props.variant){
-
-            let updatedEntry = {
-                "quantity": entry.quantity + props.quantity,
-                "item": entry.item,
-                "variant": entry.variant,
-                "price": entry.price,
-                "total": (entry.quantity + props.quantity)*entry.total
-            };
-            let basketCopy = [...this.state.basket];
-            basketCopy[index] = updatedEntry;
-            console.log("basketCopy:", basketCopy)
+    addToBasket = (props) => {
+        if (this.state.basket.length < 1) {
             this.setState({
-                basket: basketCopy
+                basket: [...this.state.basket, props]
             });
         }
-    }
-    addToBasket = (props) => {
-        /*let newBasket = {
-            "quantity": props.quantity,
-            "item": props.item,
-            "variant": props.variant,
-            "price": props.price,
-            "total": props.total
-        }*/
-        // NEED TO ADD ABILITY TO INCREASE QUANTITY OF
-        // PRODUCTS ALREADY IN BASKET IF SAME ONES ARE ADDED
-
-        /*this.state.basket.forEach(this.checkForDuplicates);*/
-
-        for(let i = 0; i < this.state.basket.length; i++){
-            this.checkForDuplicates(this.state.basket[i], props, i)
+        else{
+            for(let i = 0; i < this.state.basket.length; i++){
+                let entry = this.state.basket[i];
+                if (entry.item === props.item && entry.variant === props.variant) {
+                    let updatedEntry = {
+                        "quantity": entry.quantity + props.quantity,
+                        "item": entry.item,
+                        "variant": entry.variant,
+                        "price": entry.price,
+                        "total": (entry.quantity + props.quantity)*entry.price
+                    };
+                    let basketCopy = [...this.state.basket];
+                    basketCopy[i] = updatedEntry;
+                    this.setState({
+                        basket: basketCopy
+                    });
+                }
+                else {
+                    this.setState({
+                        basket: [...this.state.basket, props]
+                    });
+                }
+            }
         }
-        console.log(this.state.basket);
-
-        this.setState({
-            basket: [...this.state.basket, props]
-        });
         console.log(this.state.basket)
     }
     render() {
