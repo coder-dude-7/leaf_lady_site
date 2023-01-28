@@ -3,6 +3,7 @@ import productJSON from "./products.json"
 import "react-widgets/styles.css";
 import mCrafts from "./images/mCrafts.png"
 import Product from "./Product";
+import Basket from "./Basket";
 
 class Shop extends React.Component {
     constructor(props) {
@@ -11,6 +12,8 @@ class Shop extends React.Component {
             basket: []
         }
     }
+
+
 
     addToBasket = (props) => {
         if (this.state.basket.length < 1) {
@@ -47,6 +50,13 @@ class Shop extends React.Component {
     render() {
         return (
             <div className={"page"} id={"shop"}>
+                <div id={"basketContainer"}>
+                    {this.state.basket.map((entry) =>
+                        <Basket
+                            productEntry={{...entry}}
+                        />
+                    )}
+                </div>
                 <h1>SHOP</h1>
                 <div className={"product_container"}>
                     {productJSON.products.map((product) =>

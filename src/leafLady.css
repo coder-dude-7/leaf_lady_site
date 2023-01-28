@@ -244,6 +244,27 @@ html, body > #root > div {
     filter: brightness(1.1);
     transform: rotate(360deg);
 }
+
+#basketContainer {
+    display: flex;
+    flex-flow: column;
+
+}
+.basketItem {
+    display: flex;
+    flex-flow: row;
+    background: #282c34;
+    color: white;
+    padding: 10px;
+}
+.item_section {
+
+}
+#quantity {
+    color: gold;
+}
+
+
 .swiperContainer {
     width: 90%;
     max-width: 900px;
