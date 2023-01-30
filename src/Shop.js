@@ -26,6 +26,18 @@ class Shop extends React.Component {
             basket: []
         });
     }
+    changeQuantity(amount, index){
+        let basketCopy = this.state.basket; // copy basket for modification
+        let currentItem = basketCopy[index];
+        currentItem.quantity += amount; // increase/decrease quantity of specific item
+        if (currentItem.quantity < 1) {
+            currentItem.quantity = 1;
+        }
+        currentItem.total = currentItem.quantity * currentItem.price; // update total cost of items
+        this.setState({ // change basket state
+            basket: basketCopy
+        });
+    }
     addToBasket = (props) => {
         if (props.quantity === 0) {
             // if number of selected products is 0 do nothing
@@ -85,7 +97,11 @@ class Shop extends React.Component {
                     </div>
                     {this.state.basket.map((entry, index) =>
                         <div className={"basketItem"}>
-                            <div className={"item_section"} id={"quantity"}>{entry.quantity}</div>
+                            <div className={"item_section"} id={"quantity"}>
+                                <div id={"down"} className={"quantityChange"} onClick={() => this.changeQuantity(-1, index)}></div>
+                                {entry.quantity}
+                                <div id={"up"} className={"quantityChange"} onClick={() => this.changeQuantity(1, index)}></div>
+                            </div>
                             <div className={"item_section"} id={"item"}>{entry.item}</div>
                             <div className={"item_section"} id={"variant"}>{entry.variant}</div>
                             <div className={"item_section"} id={"price"}>{entry.price}</div>
