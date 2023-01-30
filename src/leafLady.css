@@ -141,20 +141,22 @@ html, body > #root > div {
 }
 
 #shoppingCartSVGHolder {
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 0;
+    top: 40px;
     width: 100%;
     cursor: pointer;
+    z-index: 11;
 }
 #shoppingCartSVG {
     width: 10%;
+    max-width: 75px;
     position: absolute;
-    right: 0;
+    right: 10px;
 }
 .basketCount {
     position: absolute;
-    right: 0;
+    right: 10px;
     background: red;
     color: whitesmoke;
     border-radius: 50%;
@@ -279,24 +281,62 @@ html, body > #root > div {
 }
 
 #basketContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    z-index: 11;
     display: flex;
     flex-flow: column;
-
+    background: var(--mainBackground);
+}
+#closeButton {
+    right: 0;
+    width: 2%;
+    max-width: 100px;
+    cursor: pointer;
+    padding: 5px;
 }
 .basketItem {
     display: flex;
     flex-flow: row;
+    justify-content: space-around;
     background: #282c34;
     color: white;
     padding: 10px;
 }
 .item_section {
-
+    text-align: center;
 }
 #quantity {
     color: gold;
+    width: 10%;
 }
-
+#item {
+    width: 30%;
+}
+#variant {
+    width: 30%;
+}
+#price {
+    width: 10%;
+}
+#total {
+    width: 10%;
+}
+#deleteItem {
+    width: 10%;
+    cursor: pointer;
+}
+#deleteItem:hover {
+    color: lightsteelblue;
+}
+.basketOptions {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
 
 .swiperContainer {
     width: 90%;

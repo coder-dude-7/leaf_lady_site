@@ -4,6 +4,7 @@ import "react-widgets/styles.css";
 import mCrafts from "./images/mCrafts.png"
 import Product from "./Product";
 import shoppingCart from "./images/shoppingCart.svg"
+import closeButton from "./images/closeButton.svg"
 
 class Shop extends React.Component {
     constructor(props) {
@@ -13,20 +14,36 @@ class Shop extends React.Component {
             showBasket: false
         }
     }
-
+    deleteFromBasket(index) {
+        let basketCopy = this.state.basket; // copy basket for modification
+        basketCopy.splice(index, 1); // remove item by index
+        this.setState({ // change basket state
+            basket: basketCopy
+        });
+    }
+    clearBasket() {
+        this.setState({
+            basket: []
+        });
+    }
     addToBasket = (props) => {
         if (props.quantity === 0) {
+            // if number of selected products is 0 do nothing
             return;
         }
-        if (this.state.basket.length < 1) {
+        if (this.state.basket.length === 0) {
+            // if basket empty add product as first item
             this.setState({
-                basket: [...this.state.basket, props]
+                basket: [props]
             });
         }
-        else{
+        else {
+            // basket has items
             for(let i = 0; i < this.state.basket.length; i++){
-                let entry = this.state.basket[i];
+                // loop through to find duplicates
+                let entry = this.state.basket[i]; // get current index
                 if (entry.item === props.item && entry.variant === props.variant) {
+                    // match is found
                     let updatedEntry = {
                         "quantity": entry.quantity + props.quantity,
                         "item": entry.item,
@@ -34,11 +51,12 @@ class Shop extends React.Component {
                         "price": entry.price,
                         "total": (entry.quantity + props.quantity)*entry.price
                     };
-                    let basketCopy = [...this.state.basket];
+                    let basketCopy = [...this.state.basket]; // can't change index of state arrays directly have to copy first
                     basketCopy[i] = updatedEntry;
                     this.setState({
                         basket: basketCopy
                     });
+                    break;
                 }
                 else {
                     this.setState({
@@ -47,7 +65,6 @@ class Shop extends React.Component {
                 }
             }
         }
-        console.log(this.state.basket)
     }
     render() {
         let basketShow;
@@ -57,25 +74,53 @@ class Shop extends React.Component {
         return (
             <div className={"page"} id={"shop"}>
                 <div id={"basketContainer"} style={basketShow}>
+                    <img src={closeButton} id={"closeButton"} onClick={() => this.setState({showBasket: false})}/>
+                    <div className={"basketItem"}>
+                        <div className={"item_section"} id={"quantity"}>Quantity</div>
+                        <div className={"item_section"} id={"item"}>Item</div>
+                        <div className={"item_section"} id={"variant"}>Variant</div>
+                        <div className={"item_section"} id={"price"}>Cost</div>
+                        <div className={"item_section"} id={"total"}>Total</div>
+                        <div className={"item_section"} id={"deleteItem"}></div>
+                    </div>
                     {this.state.basket.map((entry, index) =>
                         <div className={"basketItem"}>
-                            <div>
-                                <div className={"item_section"} id={"quantity"}>{entry.quantity}</div>
-                                <div className={"item_section"} id={"item"}>{entry.item}</div>
-                                <div className={"item_section"} id={"variant"}>{entry.variant}</div>
-                                <div className={"item_section"} id={"price"}>{entry.price}</div>
-                                <div className={"item_section"} id={"total"}>{entry.total}</div>
-                            </div>
+                            <div className={"item_section"} id={"quantity"}>{entry.quantity}</div>
+                            <div className={"item_section"} id={"item"}>{entry.item}</div>
+                            <div className={"item_section"} id={"variant"}>{entry.variant}</div>
+                            <div className={"item_section"} id={"price"}>{entry.price}</div>
+                            <div className={"item_section"} id={"total"}>{entry.total}</div>
+                            <div className={"item_section"} id={"deleteItem"} onClick={() => this.deleteFromBasket(index)}>Delete</div>
                         </div>
                     )}
+                    <div className={"basketOptions"}>
+                        <div
+                            className={"purchaseButton"}
+                            id={"clearAll"}
+                            onClick={() => this.clearBasket()}
+                        >
+                            Clear All
+                        </div>
+                        <div
+                            className={"purchaseButton"}
+                            id={"buyNow"}
+                            onClick={() => this.clearBasket()}
+                        >
+                            Buy Now
+                        </div>
+                    </div>
                 </div>
                 <div className={"shopTitle"}>
                     <h1>SHOP</h1>
-                    <div id={"shoppingCartSVGHolder"} onClick={() => {
-                        this.state.showBasket ? this.setState({showBasket: false}) : this.setState({showBasket: true})
-                    }}>
+                    <div
+                        id={"shoppingCartSVGHolder"}
+                        onClick={() => {
+                            this.state.showBasket ? this.setState({showBasket: false}) : this.setState({showBasket: true})
+                        }}
+                         style={basketCountShow}
+                    >
                         <img id={"shoppingCartSVG"} src={shoppingCart} />
-                        <div className={"basketCount"} style={basketCountShow}>{this.state.basket.length}</div>
+                        <div className={"basketCount"} >{this.state.basket.length}</div>
                     </div>
                 </div>
                 <div className={"product_container"}>
