@@ -130,6 +130,39 @@ html, body > #root > div {
     align-items: center;
 }
 
+.shopTitle {
+    width: 100%;
+    /*display: flex;
+    flex-flow: row;
+    justify-content: center;*/
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#shoppingCartSVGHolder {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    cursor: pointer;
+}
+#shoppingCartSVG {
+    width: 10%;
+    position: absolute;
+    right: 0;
+}
+.basketCount {
+    position: absolute;
+    right: 0;
+    background: red;
+    color: whitesmoke;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
 .product_container {
     width: 100%;
     height: 80%;
