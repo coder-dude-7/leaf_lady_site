@@ -11,8 +11,18 @@ class Shop extends React.Component {
         super(props);
         this.state = {
             basket: [],
-            showBasket: false
+            showBasket: false,
+            basketTotal: 0
         }
+    }
+    getBasketTotal() {
+        let total = 0;
+        for (let i = 0; i < this.state.basket.length; i++){
+            total += this.state.basket[i].total
+        }
+        this.setState({
+            basketTotal: total
+        });
     }
     deleteFromBasket(index) {
         let basketCopy = this.state.basket; // copy basket for modification
@@ -20,11 +30,13 @@ class Shop extends React.Component {
         this.setState({ // change basket state
             basket: basketCopy
         });
+        this.getBasketTotal();
     }
     clearBasket() {
         this.setState({
             basket: []
         });
+        this.getBasketTotal();
     }
     changeQuantity(amount, index){
         let basketCopy = this.state.basket; // copy basket for modification
@@ -37,6 +49,7 @@ class Shop extends React.Component {
         this.setState({ // change basket state
             basket: basketCopy
         });
+        this.getBasketTotal();
     }
     addToBasket = (props) => {
         if (props.quantity === 0) {
@@ -48,6 +61,7 @@ class Shop extends React.Component {
             this.setState({
                 basket: [props]
             });
+            this.getBasketTotal();
         }
         else {
             // basket has items
@@ -68,12 +82,14 @@ class Shop extends React.Component {
                     this.setState({
                         basket: basketCopy
                     });
+                    this.getBasketTotal();
                     break;
                 }
                 else {
                     this.setState({
                         basket: [...this.state.basket, props]
                     });
+                    this.getBasketTotal();
                 }
             }
         }
@@ -86,7 +102,7 @@ class Shop extends React.Component {
         return (
             <div className={"page"} id={"shop"}>
                 <div id={"basketContainer"} style={basketShow}>
-                    <img src={closeButton} id={"closeButton"} onClick={() => this.setState({showBasket: false})}/>
+                    <img alt={"closeButton"} src={closeButton} id={"closeButton"} onClick={() => this.setState({showBasket: false})}/>
                     <div className={"basketItem"}>
                         <div className={"item_section"} id={"quantity"}>Quantity</div>
                         <div className={"item_section"} id={"item"}>Item</div>
@@ -109,6 +125,9 @@ class Shop extends React.Component {
                             <div className={"item_section"} id={"deleteItem"} onClick={() => this.deleteFromBasket(index)}>Delete</div>
                         </div>
                     )}
+                    <div className={"basket_total"}>
+                        {this.state.basketTotal}
+                    </div>
                     <div className={"basketOptions"}>
                         <div
                             className={"purchaseButton"}
@@ -135,7 +154,7 @@ class Shop extends React.Component {
                         }}
                          style={basketCountShow}
                     >
-                        <img id={"shoppingCartSVG"} src={shoppingCart} />
+                        <img alt={"shoppingCart"} id={"shoppingCartSVG"} src={shoppingCart} />
                         <div className={"basketCount"} >{this.state.basket.length}</div>
                     </div>
                 </div>
