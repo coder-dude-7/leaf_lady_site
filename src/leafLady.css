@@ -2,11 +2,13 @@
 
 :root {
     --mainBackground: #eee9f1;
+    --dark-background: #000;
     --secondary: #E0457B;
     --third: #69B3E7;
     --main-text: #784E90;
     --secondary-text: #66904E;
     --third-text: #9EB356;
+    --basket-background: #282c34;
 
     --main-font: fantasy;
 }
@@ -302,7 +304,7 @@ html, body > #root > div {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
-    background: #282c34;
+    background: var(--basket-background);
     color: white;
     padding: 10px;
 }
@@ -467,6 +469,23 @@ html, body > #root > div {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
 }
+.basket_total {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: center;
+    background: var(--basket-background);
+}
+.basket_total_object {
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+#basketTotal {
+    width: 10%;
+}
+
 
 .jamVanSVG {
     width: 80%;
@@ -517,4 +536,13 @@ html, body > #root > div {
     border-radius: 30%;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
-
+/*----IPHONE*----*/
+@media screen and (max-width: 390px), (max-height: 844px) {
+    #weeLady_svg {
+        top: 4px;
+        width: 100px;
+    }
+    #mainLogo_svg {
+        width: 95%;
+    }
+}

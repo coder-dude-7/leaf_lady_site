@@ -11,8 +11,7 @@ class Shop extends React.Component {
         super(props);
         this.state = {
             basket: [],
-            showBasket: false,
-            basketTotal: 0
+            showBasket: false
         }
     }
     getBasketTotal() {
@@ -20,9 +19,7 @@ class Shop extends React.Component {
         for (let i = 0; i < this.state.basket.length; i++){
             total += this.state.basket[i].total
         }
-        this.setState({
-            basketTotal: total
-        });
+        return total;
     }
     deleteFromBasket(index) {
         let basketCopy = this.state.basket; // copy basket for modification
@@ -30,13 +27,12 @@ class Shop extends React.Component {
         this.setState({ // change basket state
             basket: basketCopy
         });
-        this.getBasketTotal();
     }
     clearBasket() {
         this.setState({
             basket: []
         });
-        this.getBasketTotal();
+
     }
     changeQuantity(amount, index){
         let basketCopy = this.state.basket; // copy basket for modification
@@ -49,7 +45,6 @@ class Shop extends React.Component {
         this.setState({ // change basket state
             basket: basketCopy
         });
-        this.getBasketTotal();
     }
     addToBasket = (props) => {
         if (props.quantity === 0) {
@@ -61,7 +56,6 @@ class Shop extends React.Component {
             this.setState({
                 basket: [props]
             });
-            this.getBasketTotal();
         }
         else {
             // basket has items
@@ -80,16 +74,14 @@ class Shop extends React.Component {
                     let basketCopy = [...this.state.basket]; // can't change index of state arrays directly have to copy first
                     basketCopy[i] = updatedEntry;
                     this.setState({
-                        basket: basketCopy
+                        basket: basketCopy,
                     });
-                    this.getBasketTotal();
                     break;
                 }
                 else {
                     this.setState({
-                        basket: [...this.state.basket, props]
+                        basket: [...this.state.basket, props],
                     });
-                    this.getBasketTotal();
                 }
             }
         }
@@ -126,7 +118,8 @@ class Shop extends React.Component {
                         </div>
                     )}
                     <div className={"basket_total"}>
-                        {this.state.basketTotal}
+                        <div className={"basket_total_object"} id={"basketTotalHeader"}>Total:</div>
+                        <div className={"basket_total_object"} id={"basketTotal"}>{this.getBasketTotal()}</div>
                     </div>
                     <div className={"basketOptions"}>
                         <div
