@@ -537,7 +537,7 @@ html, body > #root > div {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 /*----IPHONE*----*/
-@media screen and (max-width: 390px), (max-height: 844px) {
+@media screen and (max-width: 400px), (max-height: 860px) {
     #weeLady_svg {
         top: 4px;
         width: 100px;
@@ -545,4 +545,22 @@ html, body > #root > div {
     #mainLogo_svg {
         width: 95%;
     }
+    .product_container{
+        flex-flow: column;
+        width: 100%;
+        align-items: center;
+    }
+    .product {
+        width: 100%;
+    }
+    .mCraftImageHolder {
+        width: 40%;
+        max-width: 1000px;
+        margin-top: 50px;
+        cursor: pointer;
+    }
+    .navbar_holder {
+        display: none;
+    }
+
 }
