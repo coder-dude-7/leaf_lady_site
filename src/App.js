@@ -1,5 +1,5 @@
 import React from "react";
-import './leafLady.css';
+import './leafLady.scss';
 import Header from "./Header";
 import NavBar from "./NavBar";
 import Music from "./Music";

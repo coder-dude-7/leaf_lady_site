@@ -69,13 +69,19 @@ class Product extends React.Component {
                         />
                     </div>
                     <div id={"purchase_button_holder"}>
-                        <div
+                        {/*<div
                             className={"purchaseButton"}
                             id={"addToBasket"}
                             onClick={() => this.callBackMethod()}
                         >
                             Add to Basket
-                        </div>
+                        </div>*/}
+                        <button
+                            className="big-button"
+                            onClick={() => this.callBackMethod()}
+                        >
+                            Add to Basket
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import './leafLady.css';
+import './leafLady.scss';
 
 export default function Header() {
     return (
