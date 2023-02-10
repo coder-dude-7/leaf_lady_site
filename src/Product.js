@@ -39,6 +39,7 @@ class Product extends React.Component {
             selectedOption: new_option
         });
     }
+
     render() {
         return (
             <div className={"product"}>

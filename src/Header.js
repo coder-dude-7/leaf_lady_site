@@ -1,9 +1,46 @@
 import './leafLady.scss';
+import {useState} from "react";
 
 export default function Header() {
+    const [theme, setTheme] = useState('light');
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            document.documentElement.style.setProperty('--mainBackground', '#F8F7F1');
+            document.documentElement.style.setProperty('--tint', '#191812');
+            document.documentElement.style.setProperty('--highlight', '#CABC91');
+            document.documentElement.style.setProperty('--secondary', '#9D2E27');
+            document.documentElement.style.setProperty('--secondary-hint', '#A94842');
+            document.documentElement.style.setProperty('--third', '#453F57');
+            document.documentElement.style.setProperty('--basket-background', '#717380');
+            document.documentElement.style.setProperty('--main-font-color', '#4C4736');
+            setTheme('dark');
+        }
+        else if (theme === 'dark'){
+            document.documentElement.style.setProperty('--mainBackground', '#1E1D1E');
+            document.documentElement.style.setProperty('--tint', '#000');
+            document.documentElement.style.setProperty('--highlight', '#E3E3E3');
+            document.documentElement.style.setProperty('--secondary', '#2A5561');
+            document.documentElement.style.setProperty('--secondary-hint', '#5F8089');
+            document.documentElement.style.setProperty('--third', '#E5CD86');
+            document.documentElement.style.setProperty('--basket-background', '#282c34');
+            document.documentElement.style.setProperty('--main-font-color', '#fff');
+            setTheme('light');
+        }
+        /*else if (theme === 'dark'){
+            document.documentElement.style.setProperty('--mainBackground', '#1E1D1E');
+            document.documentElement.style.setProperty('--tint', '#000');
+            document.documentElement.style.setProperty('--highlight', '#E3E3E3');
+            document.documentElement.style.setProperty('--secondary', '#2A5561');
+            document.documentElement.style.setProperty('--secondary-hint', '#5F8089');
+            document.documentElement.style.setProperty('--third', '#E5CD86');
+            document.documentElement.style.setProperty('--basket-background', '#282c34');
+            document.documentElement.style.setProperty('--main-font-color', '#fff');
+            setTheme('light');
+        }*/
+    }
     return (
         <div className="page" id={"header"}>
-            <div id={"weeLady"}>
+            <div id={"weeLady"} onClick={() => toggleTheme()}>
                 <svg xmlns="http://www.w3.org/2000/svg"
                      width="255.355mm" height="342.647mm"
                      viewBox="0 0 3016 4047" id={"weeLady_svg"}>

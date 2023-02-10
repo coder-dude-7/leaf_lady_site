@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
-:root {
+/*:root {
     --mainBackground: #eee9f1;
     --secondary: #E0457B;
     --third: #69B3E7;
@@ -19,13 +19,13 @@
     --main-font: 'Open Sans', sans-serif;
     --header-font: fantasy;
     --main-font-size: 19px;
-}
+}*/
 
 .App {
     position: relative;
 }
 
-html, body > #root > div {
+/*html, body > #root > div {
     background: var(--dark-background);
     margin: 0;
     padding: 0;
@@ -33,14 +33,14 @@ html, body > #root > div {
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--main-font);
     letter-spacing: 0.10em;
-    /*height: 100vh;*/
+    !*height: 100vh;*!
     min-height: 100vh;
     max-width: 100vw;
     color: var(--dark-secondary);
     scroll-behavior: smooth;
-}
+}*/
 
-.page {
+/*.page {
     min-height: 100vh;
     max-width: 2543px;
     display: flex;
@@ -48,12 +48,12 @@ html, body > #root > div {
     align-items: center;
     position: relative;
     height: auto;
-    /*justify-content: center;*/
-    /*border: thin black solid;*/
-}
+    !*justify-content: center;*!
+    !*border: thin black solid;*!
+}*/
 
-#header {
-    /*padding-top: 2%;*/
+/*#header {
+    !*padding-top: 2%;*!
     min-height: 100vh;
 }
 
@@ -75,13 +75,13 @@ html, body > #root > div {
 }
 .nav_button {
     text-decoration: none;
-}
+}*/
 
-#mainLogo_svg {
+/*#mainLogo_svg {
     position: absolute;
-    /*top: 0;
+    !*top: 0;
     left: 50%;
-    transform: translateX(-50%);*/
+    transform: translateX(-50%);*!
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -95,13 +95,13 @@ html, body > #root > div {
     stroke: black;
     stroke-width: 4;
     transition: 0.25s ease-in;
-}
-#mainLogo, path:hover {
-    fill: var(--dark-secondary-tint);
+}*/
+/*#mainLogo, path:hover {
+    fill: var(--secondary);
     transition: 0.75s ease-in;
-}
+}*/
 
-#weeLady_svg {
+/*#weeLady_svg {
     position: absolute;
     top: 0;
     left: 95%;
@@ -120,7 +120,7 @@ html, body > #root > div {
 #weeLady svg:hover path{
     fill: var(--dark-secondary-tint);
     transition: ease-in 0.75s;
-}
+}*/
 
 .navbar_holder {
     display: flex;
@@ -204,11 +204,11 @@ html, body > #root > div {
     position: relative;
     width: 80%;
 }
-#productImage {
+/*#productImage {
     width: 100%;
     transition: opacity 0.5s;
     border-radius: 10px;
-}
+}*/
 #productDescription {
     position: absolute;
     top: 25%;
@@ -245,15 +245,15 @@ html, body > #root > div {
 /*.rw-widget-container {
     max-width: 100%;
 }*/
-#purchase_button_holder {
+/*#purchase_button_holder {
     width: 100%;
     display: flex;
     flex-flow: row;
     align-items: center;
     justify-content: center;
     gap: 10px;
-}
-.purchaseButton {
+}*/
+/*.purchaseButton {
     background: var(--third-text);
     min-height: 40px;
     display: flex;
@@ -266,14 +266,14 @@ html, body > #root > div {
     text-align: center;
     transition: 0.25s;
     box-shadow: 0px 0px #fff;
-}
+}*/
 /*#buy {
     background: var(--third-text);
 }*/
-.purchaseButton:hover {
-    /*background: #282c34;*/
+/*.purchaseButton:hover {
+    !*background: #282c34;*!
     box-shadow: 2px 2px #fff inset;
-}
+}*/
 /*#buy:hover{
     background: #282c34;
 }*/
@@ -514,7 +514,7 @@ html, body > #root > div {
     height: 500px;
 }
 
-.footer {
+/*.footer {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -525,7 +525,7 @@ html, body > #root > div {
     color: black;
     text-align: center;
     font-family: 'Merriweather Sans', sans-serif;
-}
+}*/
 .footer_social_logo_holder {
     display: flex;
     flex-flow: row;
@@ -576,7 +576,7 @@ html, body > #root > div {
 
 }
 
-button {
+/*button {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -586,9 +586,10 @@ button {
     text-decoration: none;
     font-size: 14px;
     color: var(--main-text);
-    /*text-transform: uppercase;*/
-}
+    !*text-transform: uppercase;*!
+}*/
 
+/*
 button.big-button {
     padding: 1em 2em;
     border: 2px solid var(--dark-tint);
@@ -628,4 +629,4 @@ button.big-button:active {
 
 button.big-button:active::before {
     transform: translate3d(0, 0, -1em);
-}
+}*/

@@ -1,12 +1,80 @@
 {
   "kind": "youtube#searchListResponse",
-  "etag": "EtfeuGNSnpVLHT7HkO_XFtI8Ezw",
+  "etag": "bTw-XLNlOecuI44zu99oO0IXzkQ",
   "regionCode": "GB",
   "pageInfo": {
-    "totalResults": 10,
-    "resultsPerPage": 10
+    "totalResults": 12,
+    "resultsPerPage": 12
   },
   "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "DKjxwxVAk35nltmSgVV8QbULvEA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "kaIJ2sm3I9o"
+      },
+      "snippet": {
+        "publishedAt": "2023-01-31T21:00:30Z",
+        "channelId": "UCL0IvU7jqOM56pIlzmfhkPw",
+        "title": "Hashpipe (Weezer Cover) Live @ The Bakehouse, Glasgow.",
+        "description": "A wee cover of Weezer's 'Hashpipe' live @ The Bakehouse, Glasgow.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/kaIJ2sm3I9o/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/kaIJ2sm3I9o/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/kaIJ2sm3I9o/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Leaf Lady & The Wish Collective",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-01-31T21:00:30Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "wrgjS5fX4aG6tW3TzrH8ZtxH8vs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "YhJVAI_Ga7c"
+      },
+      "snippet": {
+        "publishedAt": "2023-01-17T19:15:27Z",
+        "channelId": "UCL0IvU7jqOM56pIlzmfhkPw",
+        "title": "Coffee Beans 100 (jam)",
+        "description": "A live jam from the archives. Coffee Beans 100.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/YhJVAI_Ga7c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/YhJVAI_Ga7c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/YhJVAI_Ga7c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Leaf Lady & The Wish Collective",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-01-17T19:15:27Z"
+      }
+    },
     {
       "kind": "youtube#searchResult",
       "etag": "gwqxAgshV0atd1ldP602luO98EI",
@@ -179,7 +247,7 @@
     },
     {
       "kind": "youtube#searchResult",
-      "etag": "NpotdKTYsSHvkJIeH59e-gOslQE",
+      "etag": "p-4oZhXLE2-TUveP1suT5j_jua8",
       "id": {
         "kind": "youtube#video",
         "videoId": "rQ_CMQO5Jwo"
@@ -315,7 +383,7 @@
     },
     {
       "kind": "youtube#searchResult",
-      "etag": "DVKTZtlE3Gcof9pdoUBNZmPnfyo",
+      "etag": "6KDVb-M_kJDAcbkrdaMzCHDR3S0",
       "id": {
         "kind": "youtube#channel",
         "channelId": "UCL0IvU7jqOM56pIlzmfhkPw"

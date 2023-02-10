@@ -64,7 +64,7 @@ class Videos extends React.Component {
                             className={"youtubeVideo_player"}
                             width="760"
                             height="415"
-                            src={"https://www.youtube.com/embed/" + item.id.videoId + "?controls=0"}
+                            src={"https://www.youtube.com/embed/" + item.id.videoId + "?controls=1"}
                             title="YouTube video player" frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
@@ -83,7 +83,7 @@ class Videos extends React.Component {
             return (
                 <Zoom bottom delay={100}>
                     <div className={"page"} id={"videos"}>
-                        <h1>VIDEOS!</h1>
+                        <h1>VIDEOS</h1>
                         <div className={"swiperContainer"}>
                             <Swiper
                                 ref={this.swiperRef}
@@ -101,9 +101,9 @@ class Videos extends React.Component {
                             <div className={"video_navigation_button"} id={"prev_video"} onClick={() => this.swiperRef.current.swiper.slidePrev()}></div>
                             <div className={"video_navigation_button"} id={"next_video"} onClick={() => this.swiperRef.current.swiper.slideNext()}></div>
                         </div>
-                        <div className={"jamVanSVG"}>
+                        {/*<div className={"jamVanSVG"}>
                             <img src={JamVanSVG}/>
-                        </div>
+                        </div>*/}
                     </div>
                 </Zoom>
             );
