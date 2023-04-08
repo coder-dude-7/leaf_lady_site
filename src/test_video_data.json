@@ -1,12 +1,46 @@
 {
   "kind": "youtube#searchListResponse",
-  "etag": "bTw-XLNlOecuI44zu99oO0IXzkQ",
+  "etag": "7hG8iKABE7qtnSRY4hy8rUzOOAo",
   "regionCode": "GB",
   "pageInfo": {
-    "totalResults": 12,
-    "resultsPerPage": 12
+    "totalResults": 13,
+    "resultsPerPage": 13
   },
   "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "8ayTJf_v0TgtT8WVsk7h5fic--Y",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "FhIGCE0Ozjk"
+      },
+      "snippet": {
+        "publishedAt": "2023-04-03T13:19:12Z",
+        "channelId": "UCL0IvU7jqOM56pIlzmfhkPw",
+        "title": "Make It Wit Chu - Leaf Lady &amp; The Wish Collective 2023",
+        "description": "A wee cover of the classic by Queens Of The Stone Age from one of our recent jam sessions.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/FhIGCE0Ozjk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/FhIGCE0Ozjk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/FhIGCE0Ozjk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Leaf Lady & The Wish Collective",
+        "liveBroadcastContent": "none",
+        "publishTime": "2023-04-03T13:19:12Z"
+      }
+    },
     {
       "kind": "youtube#searchResult",
       "etag": "DKjxwxVAk35nltmSgVV8QbULvEA",
@@ -383,7 +417,7 @@
     },
     {
       "kind": "youtube#searchResult",
-      "etag": "6KDVb-M_kJDAcbkrdaMzCHDR3S0",
+      "etag": "5_hSTzZXd0MosdfMmvtcKrjf5c0",
       "id": {
         "kind": "youtube#channel",
         "channelId": "UCL0IvU7jqOM56pIlzmfhkPw"

@@ -1,5 +1,3 @@
-// API Key: AIzaSyAHeF_XEafeAki2MVyE6wfaspW0BJw7czY
-// channel id: UCL0IvU7jqOM56pIlzmfhkPw
 import React from "react";
 import {Swiper , SwiperSlide} from "swiper/react";
 import "swiper/css";
@@ -27,32 +25,13 @@ class Videos extends React.Component {
     }*/
     pauseVideo(videoIndex) {
         console.log(videoIndex)
-
     }
     componentDidMount() {
-        // C:\Users\natha\Desktop\websites\leafLadySite\leaf_lady_site\test_video_data.json
         this.setState({
             isLoaded: true,
             items: test_video_data.items
         })
-        /*fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyAHeF_XEafeAki2MVyE6wfaspW0BJw7czY&channelId=UCL0IvU7jqOM56pIlzmfhkPw&part=snippet,id&order=date&maxResults=20")
-            .then(result => result.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.items
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    })
-                }
-            )*/
     }
-
     render() {
         const {error, isLoaded, items} = this.state;
         const swiperItems = items.map(item =>
